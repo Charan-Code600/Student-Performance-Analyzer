@@ -1,0 +1,127 @@
+
+
+
+
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+
+FILE = "students.csv"
+
+
+if os.path.exists(FILE):
+    df = pd.read_csv(FILE)
+else:
+    df = pd.DataFrame(columns=[
+        "Name","Roll","Math","Science","English","Hindi","Computer","Average","Grade"
+    ])
+
+
+def save():
+    df.to_csv(FILE, index=False)
+
+
+while True:
+    print("""
+====================
+Student Performance Analyzer
+====================
+
+1. Add Data
+2. View Data
+3. Analysis
+4. Performance Check
+5. Subject Analysis
+6. Attendance Analysis (dummy)
+7. Ranking
+8. Visualization
+9. Export Report
+10. Exit
+""")
+
+    choice = input("Choose: ")
+
+    
+    if choice == "1":
+        name = input("Name: ")
+        roll = input("Roll: ")
+
+        math = float(input("Math: "))
+        science = float(input("Science: "))
+        english = float(input("English: "))
+        hindi = float(input("Hindi: "))
+        computer = float(input("Computer: "))
+
+        avg = (math+science+english+hindi+computer)/5
+
+        if avg >= 90:
+            grade = "A"
+        elif avg >= 75:
+            grade = "B"
+        elif avg >= 60:
+            grade = "C"
+        elif avg >= 40:
+            grade = "D"
+        else:
+            grade = "F"
+
+        new_row = pd.DataFrame([{
+            "Name": name,
+            "Roll": roll,
+            "Math": math,
+            "Science": science,
+            "English": english,
+            "Hindi": hindi,
+            "Computer": computer,
+            "Average": avg,
+            "Grade": grade
+        }])
+
+        df.loc[len(df)] = new_row.values[0]
+        save()
+        print("Added successfully!")
+
+    
+    elif choice == "2":
+        print(df)
+
+    
+    elif choice == "3":
+        print("Class Average:", df["Average"].mean())
+        print("Top Student:\n", df.loc[df["Average"].idxmax()])
+        print("Lowest Student:\n", df.loc[df["Average"].idxmin()])
+
+    
+    elif choice == "4":
+        print(df[["Name","Grade"]])
+
+    
+    elif choice == "5":
+        print(df[["Math","Science","English","Hindi","Computer"]].mean())
+
+    
+    elif choice == "6":
+        print("Attendance feature (future upgrade)")
+
+    
+    elif choice == "7":
+        print(df.sort_values(by="Average", ascending=False))
+
+    
+    elif choice == "8":
+        df.plot(x="Name", y="Average", kind="bar")
+        plt.show()
+
+    
+    elif choice == "9":
+        df.to_csv("report.csv", index=False)
+        print("Report exported!")
+
+    
+    elif choice == "10":
+        break
+
+    else:
+        print("Invalid choice")
+
+
