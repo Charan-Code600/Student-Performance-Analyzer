@@ -56,4 +56,4 @@ Priya,45,38,55,60
 
 ## Author
 
-Charan | Data Analyst
+Charan Aade | Python & Data Analysis Developer
