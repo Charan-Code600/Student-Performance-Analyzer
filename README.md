@@ -1,64 +1,59 @@
 
 
 
-# 🎓 Student Performance Analyzer
 
-A Python-based console project that manages and analyzes student marks data. It calculates performance, assigns grades, and provides ranking and insights using Pandas.
+# 📊 Student Performance Analyzer
 
----
+A Python tool to analyze student performance using Pandas and Matplotlib.
 
-## 🚀 Features
-- Add student data (Name, Roll, Marks)
-- View all student records
-- Calculate class average
-- Find top & lowest students
-- Automatic grading system (A, B, C, D, F)
-- Subject-wise analysis
-- Student ranking system
-- Save data in CSV file
+## Features
 
----
+- 👁️ View all students data
+- ➕ Add new student record (saved permanently to CSV)
+- 🧮 Calculate total & average marks
+- 🎓 Show grade & pass/fail status
+- 📈 Class statistics (highest, lowest, average)
+- 📚 Subject-wise analysis (toughest subject)
+- 🏆 Top 5 students
+- 📊 Visualize data (bar chart)
 
-## 🛠️ Tech Stack
+## Requirements
+
+\`\`\`
+pip install pandas matplotlib
+\`\`\`
+
+## How to Run
+
+\`\`\`
+python student_performance_analyzer.py
+\`\`\`
+
+## CSV Format
+
+\`\`\`
+Name,Math,Science,English,Attendance
+Aman,85,78,92,90
+Priya,45,38,55,60
+\`\`\`
+
+## Grade System
+
+| Average | Grade |
+|---|---|
+| 90 and above | A+ |
+| 75 - 89 | A |
+| 60 - 74 | B |
+| 40 - 59 | C |
+| Below 40 | Fail |
+
+## Technologies Used
+
 - Python
 - Pandas
+- Matplotlib
 - CSV
 
----
+## Author
 
-## 📂 Project Structure
-- main.py → Main program
-- students.csv → Data storage
-
----
-
-## ▶️ Run Project
-pip install pandas  
-python main.py  
-
----
-
-## 📊 Menu
-1. Add Data  
-2. View Data  
-3. Analysis  
-4. Performance Check  
-5. Subject Analysis  
-6. Attendance (Future)  
-7. Ranking  
-8. Visualization (Future)  
-9. Export Report  
-10. Exit  
-
----
-
-## 🎯 Learning
-- File Handling  
-- Data Analysis  
-- Pandas Basics  
-- CLI Project Structure  
-
----
-
-## 👨‍💻 Author
-Charan
+Charan | Data Analyst
